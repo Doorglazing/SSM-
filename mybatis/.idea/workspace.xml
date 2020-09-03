@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6fb824d-acf4-4957-8028-31b11d41eb1a" name="Default Changelist" comment="" />
+    <list default="true" id="0cdc0725-194c-4148-ba8a-26e42cfe4c11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Mybatis_01/src/main/java/com/neusoft/dao/IUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Mybatis_01/src/main/java/com/neusoft/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Mybatis_01/src/main/resources/SqlMapConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Mybatis_01/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Mybatis_01/src/main/resources/neusoft/dao/IUserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Mybatis_01/src/test/java/com/neusoft/test/MybatisDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mybatis_01/Mybatis_01.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mybatis_01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Mybatis_01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mtbatis/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mtbatis/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mtbatis/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mtbatis/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mtbatis/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1gynDYbxRudLwmETcd963SR0yks" />
+  <component name="ProjectId" id="1gyyLTBTIi6H8gjq5qrc7NsOE98" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -19,12 +38,34 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mybatis_01" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MybatisDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.neusoft.test.MybatisDemo" />
+      <module name="mybatis_01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.neusoft.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MybatisDemo" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -43,12 +84,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b6fb824d-acf4-4957-8028-31b11d41eb1a" name="Default Changelist" comment="" />
-      <created>1599095580602</created>
+      <changelist id="0cdc0725-194c-4148-ba8a-26e42cfe4c11" name="Default Changelist" comment="" />
+      <created>1599101070265</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1599095580602</updated>
-      <workItem from="1599095585142" duration="89000" />
+      <updated>1599101070265</updated>
+      <workItem from="1599101073850" duration="336000" />
     </task>
     <servers />
   </component>
@@ -56,13 +97,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="478" y="90" key="#Project_Structure" timestamp="1599095586885">
+    <state x="216" y="132" key="#Project_Structure" timestamp="1599101082168">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="478" y="90" key="#Project_Structure/0.0.1440.860@0.0.1440.860" timestamp="1599095586885" />
-    <state x="666" y="186" key="FileChooserDialogImpl" timestamp="1599095672477">
+    <state x="216" y="132" key="#Project_Structure/0.0.1440.860@0.0.1440.860" timestamp="1599101082168" />
+    <state x="404" y="229" key="FileChooserDialogImpl" timestamp="1599101383561">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="666" y="186" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1599095672477" />
+    <state x="404" y="229" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1599101383561" />
+    <state x="154" y="129" key="Maven.ArtifactSearchDialog" timestamp="1599101291882">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="154" y="129" key="Maven.ArtifactSearchDialog/0.0.1440.860@0.0.1440.860" timestamp="1599101291882" />
+    <state x="0" y="87" key="new project wizard" timestamp="1599101412420">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="0" y="87" key="new project wizard/0.0.1440.860@0.0.1440.860" timestamp="1599101412420" />
   </component>
 </project>

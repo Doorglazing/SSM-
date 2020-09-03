@@ -12,6 +12,8 @@
         <module name="mybatis-02" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="mybatis_dao_user" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

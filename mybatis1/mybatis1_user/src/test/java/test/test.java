@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 public class test {
@@ -30,6 +31,7 @@ public class test {
     }
     @After
     public void destory() throws IOException {
+        openSession.commit();
         openSession.close();
         inputStream.close();
     }
@@ -42,5 +44,48 @@ public class test {
 //        }
         System.out.println(byId.get(0));
     }
+    @Test
+    public void testFindAll(){
+        List<User> all = mapper.findAll();
+        for(User user:all){
+            System.out.println(user);
+        }
+    }
+    @Test
+    public void testInsertInto(){
+        User user = new User();
+        user.setUsername("齐天大圣");
+        user.setBirthday(new Date());
+        user.setSex("男");
+        user.setAddress("水帘洞");
+        int i = mapper.insertInto(user);
+        System.out.println(i);
+        System.out.println(user.getId());
+    }
+    @Test
+    public void testUpdate(){
+        User user = new User();
+        user.setUsername("齐天大圣");
+        user.setBirthday(new Date());
+        user.setSex("男");
+        user.setAddress("水帘洞");
+        user.setId(48);
+        mapper.updateUser(user);
+    }
+    @Test
+    public void deleteTest(){
+        mapper.deleteUser(49);
+    }
 
+    @Test
+    public void testLikeUser(){
+        List<User> users = mapper.LikeUser("至齐天%");
+        for(User user: users){
+            System.out.println(user);
+        }
+    }
+    @Test
+    public void countTotalTest(){
+        System.out.println(mapper.countTotal());
+    }
 }

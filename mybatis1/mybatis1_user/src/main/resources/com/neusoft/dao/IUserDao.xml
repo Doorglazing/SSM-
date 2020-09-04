@@ -9,4 +9,28 @@
         <select id="findById" parameterType="INT" resultType="com.neusoft.domain.User">
             select * from user where id = #{uid}
         </select>
+<!--        插入-->
+        <insert id="insertInto" parameterType="com.neusoft.domain.User">
+--             返回插入id
+            <selectKey keyColumn="id" keyProperty="id" resultType="INT">
+                select LAST_INSERT_ID()
+            </selectKey>
+            insert into user (username, birthday, sex, address) values (#{username},#{birthday},#{sex}, #{address})
+        </insert>
+
+        <update id="updateUser" parameterType="com.neusoft.domain.User">
+            update user set username=#{username}, birthday=#{birthday},sex=#{sex},address=#{address} where id = #{id}
+        </update>
+
+        <delete id="deleteUser" parameterType="java.lang.Integer">
+            delete from user where id = #{id}
+        </delete>
+
+        <select id="LikeUser" parameterType="java.lang.String" resultType="com.neusoft.domain.User">
+            select * from user where username like #{username}
+        </select>
+
+        <select id="countTotal" resultType="INT">
+            select count(*) from user;
+        </select>
     </mapper>

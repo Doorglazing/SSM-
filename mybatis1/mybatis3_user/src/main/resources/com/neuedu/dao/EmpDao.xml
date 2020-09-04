@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.EmpDao">
+    <sql id="sqlMillis" >
+        select * from Emp
+    </sql>
+    <resultMap id="empMap" type="Emp">
+        <id column="EMPNO" property="emp_no"></id>
+        <result column="ENAME" property="e_name"></result>
+        <result column="JOB" property="job"></result>
+        <result column="MGR" property="mgr"></result>
+        <result column="HIREDATE" property="hireDate"></result>
+        <result column="SAL" property="sal"></result>
+        <result column="COMM" property="comm"></result>
+        <result column="DEPTNO" property="dept_no"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="empMap">
+        <include refid="sqlMillis"></include>
+    </select>
+
+    <select id="findIn" parameterType="QueryOv" resultMap="empMap">
+        <include refid="sqlMillis"></include>
+        <where>
+            <if test="list!=null and list.size()>0">
+                <foreach collection="list" open=" Empno in (" close=")" item="empno" separator=",">
+                        #{empno}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="findSelect" parameterType="QueryOv" resultMap="empMap">
+        <include refid="sqlMillis"></include>
+        <where>
+            <if test="emp.e_name != null">
+                and ename = #{emp.e_name}
+            </if>
+            <if test="emp.hireDate != null">
+                and hireDate = #{emp.hiredate}
+            </if>
+        </where>
+    </select>
+
+</mapper>

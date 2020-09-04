@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>mybatis2_user</artifactId>
+    <artifactId>mybatis3_user</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -52,4 +52,5 @@
             </resource>
         </resources>
     </build>
+
 </project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.dao.EmpDao">
+<!--    id是别引用时自己的名-->
+
+    <resultMap id="empMap" type="Emp">
+<!--        column表示数据库的名-->
+<!--        property表示实体类的名-->
+<!--        id表示主键-->
+        <id column="EMPNO" property="emp_no"></id>
+        <result column="ENAME" property="e_name"></result>
+        <result column="JOB" property="e_job"></result>
+        <result column="MGR" property="mgr"></result>
+        <result column="HIREDATE" property="hirdate"></result>
+        <result column="SAL" property="sal"></result>
+        <result column="COMM" property="comm"></result>
+        <result column="DEPTNO" property="dept_no"></result>
+    </resultMap>
+    <select id="findAll" resultMap="empMap">
+        select * from emp
+    </select>
+    <select id="findById" resultMap="empMap">
+        select * from emp where EMPNO = #{empno};
+    </select>
+    <update id="updateEmp">
+        update emp set ename = #{e_name} , job = #{e_job}, mgr = #{mgr},
+        hiredate = #{hirdate}, sal = #{sal}, comm = #{comm} where empno = #{emp_no};
+    </update>
+    <insert id="insertIntoEmp">
+        <selectKey keyColumn="EMPNO" resultType="INT" keyProperty="emp_no">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into emp (empno, ename, job, mgr, hiredate, sal, comm, deptno) values (
+        #{emp_no}, #{e_name}, #{e_job}, #{mgr}, #{hirdate}, #{sal}, #{comm}, #{dept_no})
+    </insert>
+    <select id="likeEmp" resultMap="empMap">
+        select * from emp where ename like #{e_name}
+    </select>
+    <delete id="deleteEmp" parameterType="java.lang.Integer">
+        delete from emp where empno = #{empno}
+    </delete>
+</mapper>

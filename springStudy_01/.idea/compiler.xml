@@ -6,17 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mybatis3_user" />
-        <module name="mybatis4_user" />
-        <module name="mybatis1_user" />
-        <module name="mybatis2_user" />
+        <module name="springOne_03" />
+        <module name="springOne_02" />
+        <module name="springOne_01" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="mybatis1_user" target="1.5" />
-      <module name="mybatis2_user" target="1.5" />
-      <module name="mybatis3_user" target="1.5" />
-      <module name="mybatis4_user" target="1.5" />
+    <bytecodeTargetLevel target="8">
+      <module name="springOne_01" target="1.5" />
+      <module name="springOne_02" target="1.5" />
+      <module name="springOne_03" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

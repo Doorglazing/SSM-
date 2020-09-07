@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.dao.AccountUserDao">
+    <resultMap id="AccountMap" type="Account">
+        <id column="ID" property="id"></id>
+        <result column="UID" property="uid"></result>
+        <result column="MONEY" property="money"></result>
+
+        <association property="user" column="UID" javaType="User">
+            <id column="id" property="userId"></id>
+            <result column="username" property="userName"></result>
+            <result column="birthday" property="userBirthday"></result>
+            <result column="sex" property="userSex"></result>
+            <result column="address" property="userAddress"></result>
+        </association>
+    </resultMap>
+
+    <select id="findAllAccountUser" resultType="AccountUser">
+        select  a.*, u.username, u.address  from user u, account a where a.uid = u.id;
+    </select>
+
+    <select id="findAll"  resultMap="AccountMap">
+        select u.*, a.id as AID, a.uid, a.money from user u , account a where u.id = a.uid;
+    </select>
+
+</mapper>

@@ -5,9 +5,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(path = "/user")
+@RequestMapping( path = "/user")
 public class HelloSpringMvc {
     @RequestMapping(path = "/hello1")
     public String hello(){
@@ -24,7 +25,7 @@ public class HelloSpringMvc {
 
     @RequestMapping(value = "/paramTest")
     @Scope
-    public String accountTest(Account account){
+    public String accountTest( Account account){
         System.out.println(account);
         System.out.println(account.getLists());
         System.out.println(account.getMaps());

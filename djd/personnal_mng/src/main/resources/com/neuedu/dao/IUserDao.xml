@@ -4,8 +4,43 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--指定命名空间-->
 <mapper namespace="com.neuedu.dao.IUserDao">
+
+    <resultMap id="rsMap" type="com.neuedu.domain.Emp">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="empno" column="empno"></result>
+        <result property="job" column="job"></result>
+        <result property="deptno" column="deptno"></result>
+        <result property="status" column="status"></result>
+        <result property="hiredate" column="hiredate"></result>
+        <result property="birthDay" column="birthDay"></result>
+        <result property="mgr" column="mgr"></result>
+    </resultMap>
+
     <!--    配置查询所有用户的sql-->
-    <select id="findAll" resultType="com.neuedu.domain.Emp">
+    <select id="findAll" resultMap="rsMap">
         select * from emp
     </select>
+
+    <select id="findById" resultType="com.neuedu.domain.Emp" parameterType="INT">
+        select * from emp where id = #{id}
+    </select>
+
+    <delete id="deleteById" parameterType="INT">
+        delete from emp where id = #{id}
+    </delete>
+
+    <insert id="insertInto" parameterType="com.neuedu.domain.Emp" >
+        insert into emp(name, empno, deptno, job, status, hiredate, birthday, mgr) values (
+            #{name}, #{empno}, #{deptno}, #{job}, #{status}, #{hiredate}, #{birthDay},
+            #{mgr}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.neuedu.dao.IUserDao">
+        update emp set name = #{name}, empno = #{empno},
+        deptno = #{deptno}, job = #{job}, status = #{status},
+        hiredate = #{hiredate}, birthday = #{birthDay}, mgr = #{mgr}
+        where id = #{id}
+    </update>
 </mapper>

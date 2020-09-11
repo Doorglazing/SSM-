@@ -12,6 +12,8 @@ public class Emp {
     private Date hiredate;
     private Date birthDay;
     private Integer mgr;
+    private Dept dept;
+
 
     @Override
     public String toString() {
@@ -25,9 +27,17 @@ public class Emp {
                 ", hiredate=" + hiredate +
                 ", birthDay=" + birthDay +
                 ", mgr=" + mgr +
+                ", dept=" + dept +
                 '}';
     }
 
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
     public Integer getId() {
         return id;
     }

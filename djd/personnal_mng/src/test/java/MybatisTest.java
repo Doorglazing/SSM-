@@ -41,7 +41,7 @@ public class MybatisTest {
     }
     @Test
     public void testFindById(){
-        Emp emp = mapper.findById(1);
+        Emp emp = mapper.findById(2);
         System.out.println(emp);
     }
     @Test

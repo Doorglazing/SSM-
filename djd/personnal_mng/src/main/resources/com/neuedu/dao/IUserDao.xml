@@ -15,15 +15,22 @@
         <result property="hiredate" column="hiredate"></result>
         <result property="birthDay" column="birthDay"></result>
         <result property="mgr" column="mgr"></result>
+<!--        查多列使用           -->
+<!--   <collection property=""   -->
+        <association property="dept" column="deptno" javaType="com.neuedu.domain.Dept">
+            <id property="deptno" column="deptno"></id>
+            <result property="dname" column="dname"></result>
+            <result property="djob" column="djob"></result>
+        </association>
     </resultMap>
 
     <!--    配置查询所有用户的sql-->
     <select id="findAll" resultMap="rsMap">
-        select * from emp
+        select * from emp e left join dept d on e.deptno = d.deptno
     </select>
 
-    <select id="findById" resultType="com.neuedu.domain.Emp" parameterType="INT">
-        select * from emp where id = #{id}
+    <select id="findById" resultMap="rsMap" parameterType="INT">
+        select * from emp e left join dept d on e.deptno = d.deptno where id = #{id}
     </select>
 
     <delete id="deleteById" parameterType="INT">

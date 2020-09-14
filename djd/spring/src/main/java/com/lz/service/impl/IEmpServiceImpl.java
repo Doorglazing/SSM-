@@ -3,6 +3,7 @@ package com.lz.service.impl;
 import com.lz.proxy.IEmpProxy;
 import com.lz.service.IEmpService;
 
+
 public class IEmpServiceImpl implements IEmpService {
     @Override
     public void empFindAll() {

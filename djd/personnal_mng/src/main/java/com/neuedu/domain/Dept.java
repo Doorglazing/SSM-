@@ -16,6 +16,7 @@ public class Dept {
                 '}';
     }
 
+
     public Integer getDeptno() {
         return deptno;
     }

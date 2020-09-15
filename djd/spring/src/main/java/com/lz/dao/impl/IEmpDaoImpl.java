@@ -7,4 +7,7 @@ public class IEmpDaoImpl implements IEmpDao {
     public String empFindAll() {
         return "i am a rubbish";
     }
+    public void qianZhi(){
+        System.out.println("qianzhi");
+    }
 }

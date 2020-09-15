@@ -11,13 +11,11 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 ">
 
-    <bean class="com.lz.dao.impl.IEmpDaoImpl" id="IEmpDaoImpl"></bean>
+<!--    class必须是类-->
+<!--    id:是对象的唯一名-->
+<!--    Spring是把创建好的对象放入map中，spring框架中有一个map存放对象的、-->
 
-    <aop:config>
-        <aop:aspect ref="IEmpDaoImpl">
-            <aop:pointcut id="AllMeth" expression="execution(*com.lz.dao.impl.IEmpDaoImpl.*)"/>
-            <aop:before method="qianZhi" pointcut-ref="AllMeth" ></aop:before>
-        </aop:aspect>
+    <bean id="" class=""></bean>
 
-    </aop:config>
+
 </beans>

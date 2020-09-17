@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    11
+    12
+    13
+    14
+    15
+    16
+    17
+    18
+    19
+    20
+    21
+    22
+    23
+    24
+    25
+    26
+    27
+    28
+    29
+    30
+    31
+    32
+    33
+    34
+    35
+    36
+    37
+    38
+    39
+    40
+    41
+    42
+    43
+    44
+    45
+    46
+    47
+    48
+    49
+    50
+    51
+    52
+    53
+    54
+    55
+    56
+    57
+    58
+    59
+    60
+    61
+    62
+    63
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:aop="http://www.springframework.org/schema/aop"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:tx="http://www.springframework.org/schema/tx"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd
+">
+        <context:component-scan base-package="com.ttc"></context:component-scan>
+        <!-- 为mybatis提供数据源   -->
+        <!-- 1. 数据源 : DriverManagerDataSource -->
+        <bean id="dataSource"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+            <property name="url" value="jdbc:mysql://127.0.0.1:3306/ttc?serverTimezone=UTC&amp;useSSL=false" />
+            <property name="username" value="root" />
+            <property name="password" value="root" />
+        </bean>
+        <!-- 2. mybatis的SqlSession的工厂: SqlSessionFactoryBean dataSource:引用数据源
+
+         MyBatis定义数据源,同意加载配置
+         -->
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource"></property>
+            <property name="configLocation" value="classpath:config/mybatis-config.xml" />
+        </bean>
+        <!-- 注册Mapper方式二：也可不指定特定mapper，而使用自动扫描包的方式来注册各种Mapper ，配置如下： -->
+        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+            <property name="annotationClass" value="org.springframework.stereotype.Repository" />
+            <property name="basePackage" value="com.ttc.mapper" />
+        </bean>
+
+        <!--
+        dataSource  是sqlCOnnection
+        -->
+        <bean id="txManager"
+              class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+        <tx:advice  id="txAdvice" transaction-manager="txManager">
+            <tx:attributes>
+                <tx:method name="add*" propagation="REQUIRED" isolation="READ_COMMITTED" />
+                <tx:method name="mod*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+                <tx:method name="del*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+                <tx:method name="*"  propagation="SUPPORTS" />
+            </tx:attributes>
+        </tx:advice>
+        <aop:config>
+            <!--配置事务切点 -->
+            <aop:pointcut id="services"
+                          expression="execution(* com.lz.service.*.*(..))" />
+            <aop:advisor pointcut-ref="services" advice-ref="txAdvice" />
+        </aop:config>
+
+
+    </beans>
+
+</beans>

@@ -10,8 +10,8 @@
         <property name="age" value="21"/>
         <property name="name" value="cy"/>
     </bean>
-    <bean id="dept" class="com.lz.domain.Dept">
-        <property name="deptno" value="10"></property>
-        <property name="area" value="北京"/>
-    </bean>
+<!--    <bean id="dept" class="com.lz.domain.Dept">-->
+<!--        <property name="deptno" value="10"></property>-->
+<!--        <property name="area" value="北京"/>-->
+<!--    </bean>-->
 </beans>

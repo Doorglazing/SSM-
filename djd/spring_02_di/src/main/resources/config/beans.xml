@@ -3,16 +3,25 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--set注入-->
-<!--    <bean id="emp" class="com.lz.domain.Emp">-->
-<!--        <property name="age" value="21"/>-->
-<!--        <property name="name" value="cy"/>-->
-<!--        <property name="dept" ref="dept"/>-->
-<!--    </bean>-->
-<!--    <bean id="dept" class="com.lz.domain.Dept">-->
-<!--        <property name="deptno" value="10"></property>-->
-<!--        <property name="area" value="北京"/>-->
-<!--    </bean>-->
+    <bean id="emp" class="com.lz.domain.Emp">
+        <property name="age" value="21"/>
+        <property name="name" value="cy"/>
+        <property name="dept" ref="dept"/>
+    </bean>
+    <bean id="dept" class="com.lz.domain.Dept">
+        <property name="deptno" value="10"></property>
+        <property name="area" value="北京"/>
+    </bean>
 <!--构造注入-->
-    
+    <bean class="com.lz.domain.Constra" id="constra">
+        <constructor-arg name="age" value="20" />
+        <constructor-arg  name="dept" ref="dept"/>
+        <constructor-arg name="name" value="cy"/>
+    </bean>
+<!--    <bean class="com.lz.domain.Constra" id="constra">-->
+<!--        <constructor-arg index="0" value="cy" />-->
+<!--        <constructor-arg  index="1" value="20"/>-->
+<!--        <constructor-arg index="2" ref="dept"/>-->
+<!--    </bean>-->
 </beans>
 <!--        spring-beans.xml是约束文件         -->

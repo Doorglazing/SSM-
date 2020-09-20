@@ -1,3 +1,4 @@
+import com.lz.domain.Constra;
 import com.lz.domain.Emp;
 import com.lz.service.impl.EmpServiceImpl;
 import org.junit.Test;
@@ -16,7 +17,7 @@ public class test {
         //                  ClassPathXmlApplicationContext 通常用的
         ApplicationContext context = new ClassPathXmlApplicationContext(config);
         // 获取对象   getBean通常返回
-        Emp emp = (Emp)context.getBean("emp");
+        Constra emp = (Constra)context.getBean("constra");
         System.out.println(emp);
     }
 }

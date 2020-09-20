@@ -2,11 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <bean class="com.lz.service.impl.EmpServiceImpl" id="someService"></bean>
-    <bean class="com.lz.service.impl.EmpServiceImpl" id="someService1"></bean>
-
-
-    <bean class="java.util.Date" id="date"></bean>
+<!--set注入-->
+<!--    <bean id="emp" class="com.lz.domain.Emp">-->
+<!--        <property name="age" value="21"/>-->
+<!--        <property name="name" value="cy"/>-->
+<!--        <property name="dept" ref="dept"/>-->
+<!--    </bean>-->
+<!--    <bean id="dept" class="com.lz.domain.Dept">-->
+<!--        <property name="deptno" value="10"></property>-->
+<!--        <property name="area" value="北京"/>-->
+<!--    </bean>-->
+<!--构造注入-->
+    
 </beans>
 <!--        spring-beans.xml是约束文件         -->

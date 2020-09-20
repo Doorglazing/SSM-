@@ -1,3 +1,4 @@
+import com.lz.domain.Emp;
 import com.lz.service.impl.EmpServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -15,18 +16,7 @@ public class test {
         //                  ClassPathXmlApplicationContext 通常用的
         ApplicationContext context = new ClassPathXmlApplicationContext(config);
         // 获取对象   getBean通常返回
-//        EmpServiceImpl service = (EmpServiceImpl)context.getBean("someService");
-//        service.doSome();
-        Date date = (Date)context.getBean("date");
-        long time = date.getTime();
-        System.out.println(date);
-        int beanDefinitionCount = context.getBeanDefinitionCount();
-        System.out.println(beanDefinitionCount);
-        String[] beanDefinitionNames = context.getBeanDefinitionNames();
-        for(String bean: beanDefinitionNames){
-            System.out.println(bean); //  获取bean的id
-        }
-
-
+        Emp emp = (Emp)context.getBean("emp");
+        System.out.println(emp);
     }
 }

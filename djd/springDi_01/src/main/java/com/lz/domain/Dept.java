@@ -1,7 +1,12 @@
 package com.lz.domain;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+@Component
 public class Dept {
+    @Value("12")
     private int deptno;
+    @Value("沈阳")
     private String area;
 
     @Override
@@ -16,15 +21,9 @@ public class Dept {
         return deptno;
     }
 
-    public void setDeptno(int deptno) {
-        this.deptno = deptno;
-    }
-
     public String getArea() {
         return area;
     }
 
-    public void setArea(String area) {
-        this.area = area;
-    }
+
 }

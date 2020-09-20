@@ -1,11 +1,16 @@
 package com.lz.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component(value = "emp")
 public class Emp {
+    @Value("cy")
     private String name;
+    @Value("21")
     private int age;
+    @Autowired
     private Dept dept;
 
     @Override

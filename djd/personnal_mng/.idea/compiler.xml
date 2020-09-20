@@ -9,6 +9,7 @@
         <module name="spring_01" />
         <module name="spring_02_di" />
         <module name="spring" />
+        <module name="springDi_01" />
         <module name="personnal_mng" />
       </profile>
     </annotationProcessing>

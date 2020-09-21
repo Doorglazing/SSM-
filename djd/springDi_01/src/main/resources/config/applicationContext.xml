@@ -5,6 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 <!--    组件扫描器-->
     <context:component-scan base-package="com.lz.domain2"/>
+    <context:property-placeholder location="test.properties"/>
 <!--    <context:component-scan base-package="com.lz.dao"/>-->
 <!--    第二种扫描方式-->
 <!--    <context:component-scan base-package="com.lz.dao; com.lz.domain"/>-->

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component("emp")
 public class Emp {
-    @Value("cy")
+    @Value("${name}")
     private String name;
-    @Value("21")
+    @Value("${age}")
     private int age;
     @Autowired
     @Qualifier("dept")

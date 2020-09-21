@@ -10,7 +10,7 @@ public class Emp {
     private String name;
     @Value("21")
     private int age;
-    @Autowired
+    @Autowired(required = false)
     private Dept dept;
 
     @Override

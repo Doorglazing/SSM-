@@ -1,5 +1,6 @@
 package com.lz.bg01;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
@@ -25,7 +26,11 @@ public class MyAspect {
      *   在目标方法之前执行
      */
     @Before(value = "execution(public void com.lz.bg01.SomeServiceImpl.doSome(String))")
-    public void myBefore(){
+    public void myBefore(JoinPoint jp){
+        System.out.println(jp.getSignature());
+        System.out.println(jp.getSignature().getName());
         System.out.println("Before通知");
     }
+
+
 }

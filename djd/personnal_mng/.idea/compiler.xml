@@ -9,10 +9,10 @@
         <module name="spring_02_di" />
         <module name="spring_01" />
         <module name="springAop_02" />
-        <module name="springMytatis01" />
+        <module name="springDi_01" />
         <module name="springAop" />
         <module name="springAop01" />
-        <module name="springDi_01" />
+        <module name="springMytatis01" />
         <module name="spring" />
         <module name="personnal_mng" />
       </profile>

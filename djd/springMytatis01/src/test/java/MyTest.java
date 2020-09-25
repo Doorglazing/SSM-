@@ -1,15 +1,15 @@
+import com.lz.service.BuyGoodsService;
+import com.lz.service.impl.BuyGoodServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MyTest {
-    public static void main(String[] args) {
-
-    }
+    private String config = "applicationContext001.xml";
+    private ApplicationContext ac = new ClassPathXmlApplicationContext(config);
     @Test
     public void Test01(){
-        String config = "applicationContext001.xml";
-        ApplicationContext ac = new ClassPathXmlApplicationContext(config);
-        Object dataSource = ac.getBean("dataSource");
+        BuyGoodsService service = (BuyGoodsService) ac.getBean("buyService");
+        service.buy(1002, 2000);
     }
 }

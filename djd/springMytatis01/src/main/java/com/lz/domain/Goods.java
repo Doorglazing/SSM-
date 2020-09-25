@@ -1,25 +1,19 @@
 package com.lz.domain;
 
-public class Account {
+public class Goods {
     private int id;
     private String name;
-    private int money;
+    private int amount;
+    private int price;
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "Goods{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", money=" + money +
+                ", amount=" + amount +
+                ", price=" + price +
                 '}';
-    }
-
-    public Account(){}
-
-    public Account(int id, String name, int money) {
-        this.id = id;
-        this.name = name;
-        this.money = money;
     }
 
     public int getId() {
@@ -38,11 +32,19 @@ public class Account {
         this.name = name;
     }
 
-    public int getMoney() {
-        return money;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

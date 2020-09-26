@@ -2,12 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
     <context:property-placeholder location="classpath:druid.properties"/>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -52,4 +53,19 @@
                                 com.lz.execp.NotClassException"/>
         </tx:attributes>
     </tx:advice>
+<!--    配置aop-->
+    <aop:config>
+<!--        配置切入点表达式， 指定哪些包中类，要使用事务
+                id:切入点表达式的名称，唯一值
+                expression：切入点表达式，指定哪些类要使用事务，aspectj会创建代理对象
+ -->
+        <aop:pointcut id="servciePt" expression="execution(* *..service..*.*(..))"/>
+        <!--
+            配置增墙器：
+                        关联advice和pointcut
+                        advice-ref: 通知 ， 上面的tx:advice那里的配置
+                        pointcut-ref: 切入点表达式的id
+        -->
+        <aop:advisor advice-ref="myAdvice" pointcut-ref="servciePt"/>
+    </aop:config>
 </beans>

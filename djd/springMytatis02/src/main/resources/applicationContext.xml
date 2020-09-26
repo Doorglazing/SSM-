@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <context:property-placeholder location="classpath:druid.properties"/>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+
+        <property name="configLocation" value="classpath:mybatis.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.lz.dao" />
+    </bean>
+
+    <bean id="buyService" class="com.lz.service.impl.BuyGoodServiceImpl">
+        <property name="sd" ref="saleDao"/>
+        <property name="gd" ref="goodsDao"/>
+    </bean>
+
+<!--    声明事务管理对象-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+<!--    声明业务方法事务属性(隔离级别，传播方式)
+    id： 自定义名称， 表示<tx:advice> 和 </tx:advice>之间的配置内容
+    transaction-manager： 表示事务管理器对象id
+-->
+    <tx:advice transaction-manager="transactionManager" id="myAdvice">
+<!--        表示要配置事务的属性-->
+        <tx:attributes>
+<!--            表示给具体的方法配置属性
+                    name : 完整的方法名
+                            方法名可以用通配符 *表示任意字符
+                    其他属性和之前的意义
+ -->
+            <tx:method name="buy" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.NullPointerException,
+                                com.lz.execp.NotClassException"/>
+        </tx:attributes>
+    </tx:advice>
+</beans>

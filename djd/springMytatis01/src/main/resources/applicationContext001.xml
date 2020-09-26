@@ -19,6 +19,7 @@
             它的赋值，使用value，指定文件的路径，使用classpath：表示文件位置-->
         <property name="configLocation" value="classpath:mybatis.xml"/>
     </bean>
+
     <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="basePackage" value="com.lz.dao"/>
@@ -28,11 +29,13 @@
         <property name="sd" ref="saleDao"/>
         <property name="gd" ref="goodsDao"/>
     </bean>
+
 <!--        spring的事务处理-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 <!--        指定数据源-->
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
 <!--    开启事务注解驱动-->
     <tx:annotation-driven  transaction-manager="transactionManager"/>
 </beans>

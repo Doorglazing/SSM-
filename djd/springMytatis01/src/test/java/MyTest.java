@@ -10,6 +10,7 @@ public class MyTest {
     @Test
     public void Test01(){
         BuyGoodsService service = (BuyGoodsService) ac.getBean("buyService");
-        service.buy(1002, 2000);
+        System.out.println(service.getClass().getName());
+        service.buy(1005, 100);
     }
 }

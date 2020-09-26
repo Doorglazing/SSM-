@@ -8,6 +8,8 @@
     </select>
     <update id="updateGoods">
         update goods set amount = amount - #{amount} where id = #{id}
-
     </update>
+    <insert id="insertInto" parameterType="com.lz.domain.Goods01">
+        insert into goods(id, name, amount, price) values (#{id}, #{name}, #{amount}, #{price})
+    </insert>
 </mapper>

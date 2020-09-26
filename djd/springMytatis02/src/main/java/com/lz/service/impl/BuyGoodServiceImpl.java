@@ -32,6 +32,12 @@ public class BuyGoodServiceImpl implements BuyGoodsService {
         goods1.setAmount(nums);
         gd.updateGoods(goods1);
     }
+
+    @Override
+    public void insertInto(Goods01 goods01) {
+        gd.insertInto(goods01);
+    }
+
     public void setGd(GoodsDao gd) {
         this.gd = gd;
     }

@@ -11,4 +11,20 @@
         <servlet-name>control</servlet-name>
         <url-pattern>/res</url-pattern>
     </servlet-mapping>
+    
+<!--    注册监听器
+        被创建对象后，会读取/web-inf/applicationContext.xml
+        为什么要读取文件： 因为监听器中要创建applicationContext对象，需要加载配置文件.
+        /WEB-INF/applicationContext.xml默认读取的spring配置文件
+        可以修改默认文件位置. 使用context-param重新指定文件位置
+-->
+    <context-param>
+<!--        contextConfigLocation:  表示文件的路径 -->
+        <param-name>contextConfigLocation</param-name>
+<!--        自定义配置文件路径 -->
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 </web-app>

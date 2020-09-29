@@ -35,7 +35,11 @@ public class MyController {
         mv.addObject("fun", "执行dosmome方法");
         // 指定视图
         // 框架对视图执行的是forward.
-        mv.setViewName("/show.jsp");
+//        mv.setViewName("/WEB-INF/view/show.jsp");
+//        配置了视图解析器后用逻辑名称指定视图
+//        框架自动把前缀和逻辑名称和视图进行字符串拼接
+
+        mv.setViewName("show");
         return mv;
     }
 }

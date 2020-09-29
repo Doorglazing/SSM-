@@ -26,7 +26,7 @@ public class MyController {
      *              Model：要显示给用户的数据
      *              View ： 返回jsp等.
      */
-    @RequestMapping(value = "/some.do")
+    @RequestMapping(value = {"/some.do","/second.do"})
     public ModelAndView dosome(){   // doGet()
         ModelAndView mv = new ModelAndView();
 //        添加数据 ， 框架最后吧数据放入request作用域

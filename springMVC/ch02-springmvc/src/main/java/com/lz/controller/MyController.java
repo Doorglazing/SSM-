@@ -2,6 +2,7 @@ package com.lz.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -26,7 +27,8 @@ public class MyController {
      *              Model：要显示给用户的数据
      *              View ： 返回jsp等.
      */
-    @RequestMapping(value = {"/some.do","/second.do"})
+//    @RequestMapping(value = {"/some.do","/second.do"})
+    @RequestMapping(value = "/some.do", method = RequestMethod.POST)
     public ModelAndView dosome(){   // doGet()
         ModelAndView mv = new ModelAndView();
 //        添加数据 ， 框架最后吧数据放入request作用域
